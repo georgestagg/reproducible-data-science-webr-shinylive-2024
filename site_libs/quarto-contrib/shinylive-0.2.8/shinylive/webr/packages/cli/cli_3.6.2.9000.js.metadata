@@ -1,0 +1,310 @@
+{
+  "files": [
+    {
+      "filename": "/DESCRIPTION",
+      "start": 0,
+      "end": 2059
+    },
+    {
+      "filename": "/INDEX",
+      "start": 2059,
+      "end": 9201
+    },
+    {
+      "filename": "/LICENSE",
+      "start": 9201,
+      "end": 9242
+    },
+    {
+      "filename": "/Meta/Rd.rds",
+      "start": 9242,
+      "end": 14428
+    },
+    {
+      "filename": "/Meta/features.rds",
+      "start": 14428,
+      "end": 14560
+    },
+    {
+      "filename": "/Meta/hsearch.rds",
+      "start": 14560,
+      "end": 19301
+    },
+    {
+      "filename": "/Meta/links.rds",
+      "start": 19301,
+      "end": 21852
+    },
+    {
+      "filename": "/Meta/nsInfo.rds",
+      "start": 21852,
+      "end": 23721
+    },
+    {
+      "filename": "/Meta/package.rds",
+      "start": 23721,
+      "end": 25510
+    },
+    {
+      "filename": "/NAMESPACE",
+      "start": 25510,
+      "end": 31240
+    },
+    {
+      "filename": "/NEWS.md",
+      "start": 31240,
+      "end": 48552
+    },
+    {
+      "filename": "/R/cli",
+      "start": 48552,
+      "end": 49610
+    },
+    {
+      "filename": "/R/cli.rdb",
+      "start": 49610,
+      "end": 311956
+    },
+    {
+      "filename": "/R/cli.rdx",
+      "start": 311956,
+      "end": 320210
+    },
+    {
+      "filename": "/R/sysdata.rdb",
+      "start": 320210,
+      "end": 461281
+    },
+    {
+      "filename": "/R/sysdata.rdx",
+      "start": 461281,
+      "end": 461544
+    },
+    {
+      "filename": "/examples/apps/news.R",
+      "start": 461544,
+      "end": 464556
+    },
+    {
+      "filename": "/examples/apps/outdated.R",
+      "start": 464556,
+      "end": 466628
+    },
+    {
+      "filename": "/examples/apps/search.R",
+      "start": 466628,
+      "end": 468702
+    },
+    {
+      "filename": "/examples/apps/up.R",
+      "start": 468702,
+      "end": 470236
+    },
+    {
+      "filename": "/exec/news.R",
+      "start": 470236,
+      "end": 473248
+    },
+    {
+      "filename": "/exec/outdated.R",
+      "start": 473248,
+      "end": 475281
+    },
+    {
+      "filename": "/exec/search.R",
+      "start": 475281,
+      "end": 477352
+    },
+    {
+      "filename": "/exec/up.R",
+      "start": 477352,
+      "end": 478880
+    },
+    {
+      "filename": "/help/AnIndex",
+      "start": 478880,
+      "end": 486192
+    },
+    {
+      "filename": "/help/aliases.rds",
+      "start": 486192,
+      "end": 488204
+    },
+    {
+      "filename": "/help/cli.rdb",
+      "start": 488204,
+      "end": 924914
+    },
+    {
+      "filename": "/help/cli.rdx",
+      "start": 924914,
+      "end": 927651
+    },
+    {
+      "filename": "/help/figures/demo-spinners.svg",
+      "start": 927651,
+      "end": 944607
+    },
+    {
+      "filename": "/help/figures/get-spinner.svg",
+      "start": 944607,
+      "end": 960181
+    },
+    {
+      "filename": "/help/figures/make-spinner-custom.svg",
+      "start": 960181,
+      "end": 976881
+    },
+    {
+      "filename": "/help/figures/make-spinner-default.svg",
+      "start": 976881,
+      "end": 1008235
+    },
+    {
+      "filename": "/help/figures/make-spinner-template.svg",
+      "start": 1008235,
+      "end": 1040099
+    },
+    {
+      "filename": "/help/figures/progress-1.svg",
+      "start": 1040099,
+      "end": 1062376
+    },
+    {
+      "filename": "/help/figures/progress-after.svg",
+      "start": 1062376,
+      "end": 1074233
+    },
+    {
+      "filename": "/help/figures/progress-along-1.svg",
+      "start": 1074233,
+      "end": 1088465
+    },
+    {
+      "filename": "/help/figures/progress-along-2.svg",
+      "start": 1088465,
+      "end": 1102440
+    },
+    {
+      "filename": "/help/figures/progress-along-3.svg",
+      "start": 1102440,
+      "end": 1112118
+    },
+    {
+      "filename": "/help/figures/progress-clear.svg",
+      "start": 1112118,
+      "end": 1140617
+    },
+    {
+      "filename": "/help/figures/progress-current.svg",
+      "start": 1140617,
+      "end": 1164608
+    },
+    {
+      "filename": "/help/figures/progress-format.svg",
+      "start": 1164608,
+      "end": 1171234
+    },
+    {
+      "filename": "/help/figures/progress-message.svg",
+      "start": 1171234,
+      "end": 1176470
+    },
+    {
+      "filename": "/help/figures/progress-natotal.svg",
+      "start": 1176470,
+      "end": 1190676
+    },
+    {
+      "filename": "/help/figures/progress-output.svg",
+      "start": 1190676,
+      "end": 1212540
+    },
+    {
+      "filename": "/help/figures/progress-output2.svg",
+      "start": 1212540,
+      "end": 1234322
+    },
+    {
+      "filename": "/help/figures/progress-step-dynamic.svg",
+      "start": 1234322,
+      "end": 1253039
+    },
+    {
+      "filename": "/help/figures/progress-step-msg.svg",
+      "start": 1253039,
+      "end": 1259392
+    },
+    {
+      "filename": "/help/figures/progress-step-spin.svg",
+      "start": 1259392,
+      "end": 1274806
+    },
+    {
+      "filename": "/help/figures/progress-step.svg",
+      "start": 1274806,
+      "end": 1281396
+    },
+    {
+      "filename": "/help/figures/progress-tasks.svg",
+      "start": 1281396,
+      "end": 1284416
+    },
+    {
+      "filename": "/help/paths.rds",
+      "start": 1284416,
+      "end": 1285515
+    },
+    {
+      "filename": "/html/00Index.html",
+      "start": 1285515,
+      "end": 1320593
+    },
+    {
+      "filename": "/html/R.css",
+      "start": 1320593,
+      "end": 1322437
+    },
+    {
+      "filename": "/include/cli/progress.h",
+      "start": 1322437,
+      "end": 1334209
+    },
+    {
+      "filename": "/libs/cli.so",
+      "start": 1334209,
+      "end": 1463794
+    },
+    {
+      "filename": "/logo.txt",
+      "start": 1463794,
+      "end": 1466536
+    },
+    {
+      "filename": "/shiny/along/app.R",
+      "start": 1466536,
+      "end": 1467880
+    },
+    {
+      "filename": "/shiny/format/app.R",
+      "start": 1467880,
+      "end": 1469275
+    },
+    {
+      "filename": "/shiny/nested/app.R",
+      "start": 1469275,
+      "end": 1470969
+    },
+    {
+      "filename": "/shiny/output/app.R",
+      "start": 1470969,
+      "end": 1472384
+    },
+    {
+      "filename": "/shiny/simple/app.R",
+      "start": 1472384,
+      "end": 1473741
+    }
+  ],
+  "remote_package_size": 1473741
+}

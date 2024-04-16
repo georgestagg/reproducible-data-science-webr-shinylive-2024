@@ -1,0 +1,177 @@
+[
+  {
+    "objectID": "index.html#the-open-science-movement",
+    "href": "index.html#the-open-science-movement",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "The Open Science movement",
+    "text": "The Open Science movement\nA fundamental principle of the scientific method is peer preview and verification.\n\n\n\n\nResearchers increasingly publishing data, infrastructure, and software.\nIn some areas, becoming an institutional or regulatory requirement.\nTaking lessons and inspiration from free and open source software.\n\n\n\nReproducible software allows the same conclusions to be equally available to all researchers.\n\n\n\n\n\n\n\n\n\n\n\n🔗 Open Science now: A systematic literature review for an integrated definition - https://doi.org/10.1016/j.jbusres.2017.12.043\n\n\n🔗 Understanding Open Science - https://doi.org/10.54677/UTCD9302"
+  },
+  {
+    "objectID": "index.html#reproducibility-in-practice",
+    "href": "index.html#reproducibility-in-practice",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Reproducibility in practice",
+    "text": "Reproducibility in practice"
+  },
+  {
+    "objectID": "index.html#what-do-we-mean-by-reproducible-software",
+    "href": "index.html#what-do-we-mean-by-reproducible-software",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "What do we mean by “reproducible” software?",
+    "text": "What do we mean by “reproducible” software?\n\nThe ability for anyone to easily re-run and verify the result of some computational procedure.\n\n\n\nThe ability to modify or extend the procedure (software and/or data) to gain new insights.\n\n\n\n\n\nThere is some level of subjectivity here: “easily”\n\n\n\n\n\nThere are levels of reproducibility, some are easier than others.\n\n\n\n\nMore info:\n🔗 Building reproducible analytical pipelines with R, Bruno Rodrigues\n🔗 ONS RAP Companion\n🔗 Software Carpentry, Data Carpentry"
+  },
+  {
+    "objectID": "index.html#the-first-level-of-reproducibility",
+    "href": "index.html#the-first-level-of-reproducibility",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "The first level of reproducibility",
+    "text": "The first level of reproducibility\nRecognise there is no guarantee your script will run successfully anywhere else.\n\nIt works on my machine ¯\\(ツ)/¯\n\n\n\nSome simple things to watch out for:\n\nHard-coded paths, setwd(), project organisation.\nEnsure all source files and datasets can be loaded.\nWorkflow management, order of execution.\nAvoidable programming errors.\n\n\n\nA small effort here, even using automated tools, makes a big difference."
+  },
+  {
+    "objectID": "index.html#at-the-language-level",
+    "href": "index.html#at-the-language-level",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "At the language level",
+    "text": "At the language level\n\n\n\nSource code management, git, GitHub.\nDefensive programming, handling error conditions.\nOrganising software into modules or packages.\nLifecycle management, avoid deprecated functionality.\nDocumentation and tests.\n\n\n\n\n\n\n\n\nNo magic bullet: Good software engineering leads to lasting projects.\nResearch Software Engineering: https://society-rse.org, https://us-rse.org"
+  },
+  {
+    "objectID": "index.html#computing-environments",
+    "href": "index.html#computing-environments",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Computing environments",
+    "text": "Computing environments\nMany different computational environments exist, all with the potential to affect your analysis.\n\n\nLanguage and package management\n\nVersions of interpreter software:\n\nR 3.6.3, 4.1.3\nPython 3.8, 3.12\nNode 16, 20\n\nVersions of packages\n\nTools: rig, pyenv, p3m, renv, venv.\n\n\nSystem and library management\n\nSystem libraries: GSL, NLopt, BLAS/LAPACK\nOperating system: Windows, macOS, Linux\n\nTools: Virtual Machines, Docker, Nix.\n\n\n\n\n\nVery slow to reproduce environment in full, especially without caching!\nDifficult to use, very steep learning curve."
+  },
+  {
+    "objectID": "index.html#binary-level-differences",
+    "href": "index.html#binary-level-differences",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Binary-level differences",
+    "text": "Binary-level differences\nSoftware source code is compiled into a machine-language binary. But the same software can give different binaries depending on the type of hardware (ARM vs x86_64 vs RISC)\n\n\n\n\n\n\n\n\nMore info:\n🔗 https://github.com/numpy/numpy/issues/9187\n🔗 Floating point determinism\n🔗 What every computer scientist should know about floating point arithmetic"
+  },
+  {
+    "objectID": "index.html#webassembly",
+    "href": "index.html#webassembly",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "WebAssembly",
+    "text": "WebAssembly\n\n\n\nA portable binary code format\nEnables high-performance applications on web pages\nNear-native execution speed\nSupported by most modern browsers\nInteractive through JavaScript integration\n\n\n\n\n\nAlso provides benefits for security in the form of containerisation and sandboxing."
+  },
+  {
+    "objectID": "index.html#r-for-webassembly-webr",
+    "href": "index.html#r-for-webassembly-webr",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "R for WebAssembly: webR",
+    "text": "R for WebAssembly: webR\n\n\n\n\n\n\n\nThe webR project is a version of the R interpreter built for WebAssembly.\nExecute R code directly in a web browser, without a supporting R server. Alternatively, run an R process server-side using Node.js\n\nAvailable on GitHub and NPM as a JavaScript & TypeScript library."
+  },
+  {
+    "objectID": "index.html#the-webr-application-httpswebr.r-wasm.orgv0.3.2",
+    "href": "index.html#the-webr-application-httpswebr.r-wasm.orgv0.3.2",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "The webR Application 🔗 https://webr.r-wasm.org/v0.3.2/",
+    "text": "The webR Application 🔗 https://webr.r-wasm.org/v0.3.2/"
+  },
+  {
+    "objectID": "index.html#live-and-interactive-code",
+    "href": "index.html#live-and-interactive-code",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Live and interactive code",
+    "text": "Live and interactive code"
+  },
+  {
+    "objectID": "index.html#traditional-shiny-app",
+    "href": "index.html#traditional-shiny-app",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Traditional Shiny App",
+    "text": "Traditional Shiny App"
+  },
+  {
+    "objectID": "index.html#hosting-a-shiny-app",
+    "href": "index.html#hosting-a-shiny-app",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Hosting a Shiny app",
+    "text": "Hosting a Shiny app\n\nA workstation, under a desk, running RStudio\nA server, in a rack, running Shiny Server\nshinyapps.io\nPosit Cloud/Posit Connect\nAWS/Google/Azure enterprise cloud hosting"
+  },
+  {
+    "objectID": "index.html#bundle-and-distribute-app",
+    "href": "index.html#bundle-and-distribute-app",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Bundle and distribute app",
+    "text": "Bundle and distribute app\n\nTransfer source and data to some other machine.\nRun the app with a local Shiny server.\nUseful method for e.g. archival, app submission and review.\n\n\n\nRequires a reproducible workflow and software installation:\n\nR/Python interpreter, of the correct version.\nSoftware and environment control: Docker, rix, renv, venv, etc.\nSoftware development tools: RStudio, VS Code.\nKnowledge and experience: Shiny runApp(), debugging.\n\n\n\n\nWouldn’t it be great if we could run Shiny apps locally, without installing any extra software?"
+  },
+  {
+    "objectID": "index.html#shinylive-app-httpsshinylive.ior",
+    "href": "index.html#shinylive-app-httpsshinylive.ior",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Shinylive App 🔗 https://shinylive.io/r/",
+    "text": "Shinylive App 🔗 https://shinylive.io/r/"
+  },
+  {
+    "objectID": "index.html#static-web-hosting",
+    "href": "index.html#static-web-hosting",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Static web hosting",
+    "text": "Static web hosting\n\nGithub Pages\nNetlify\nCloudflare Pages\nQuarto Pub\nLots more…"
+  },
+  {
+    "objectID": "index.html#shinylive-in-quarto",
+    "href": "index.html#shinylive-in-quarto",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Shinylive in Quarto",
+    "text": "Shinylive in Quarto\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.\n\n```{shinylive-r}\n#| standalone: true\nlibrary(shiny)\n\n# Create Shiny UI\nui &lt;- [...]\n\n# Create Shiny server function\nserver &lt;- function(input, output, session) {\n  [...]\n}\n\n# Build Shiny app\nshinyApp(ui = ui, server = server)\n```\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu\nfugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit laborum."
+  },
+  {
+    "objectID": "index.html#shinylive-for-r",
+    "href": "index.html#shinylive-for-r",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Shinylive for R",
+    "text": "Shinylive for R\n#| standalone: true\n#| viewerHeight: 700\n\nlibrary(shiny)\nlibrary(bslib)\n\ntheme &lt;- bs_theme(font_scale = 1.5)\n\n# Define UI for app that draws a histogram ----\nui &lt;- page_sidebar(theme = theme,\n  sidebar = sidebar(open = \"open\",\n    numericInput(\"n\", \"Sample count\", 50),\n    checkboxInput(\"pause\", \"Pause\", FALSE),\n  ),\n  plotOutput(\"plot\", width=1100)\n)\n\nserver &lt;- function(input, output, session) {\n  data &lt;- reactive({\n    input$resample\n    if (!isTRUE(input$pause)) {\n      invalidateLater(1000)\n    }\n    rnorm(input$n)\n  })\n  \n  output$plot &lt;- renderPlot({\n    hist(data(),\n      breaks = 30,\n      xlim = c(-2, 2),\n      ylim = c(0, 1),\n      xlab = \"value\",\n      freq = FALSE,\n      main = \"\"\n    )\n    \n    x &lt;- seq(from = -2, to = 2, length.out = 500)\n    y &lt;- dnorm(x)\n    lines(x, y, lwd=1.5)\n    \n    lwd &lt;- 5\n    abline(v=0, col=\"red\", lwd=lwd, lty=2)\n    abline(v=mean(data()), col=\"blue\", lwd=lwd, lty=1)\n\n    legend(legend = c(\"Normal\", \"Mean\", \"Sample mean\"),\n      col = c(\"black\", \"red\", \"blue\"),\n      lty = c(1, 2, 1),\n      lwd = c(1, lwd, lwd),\n      x = 1,\n      y = 0.9\n    )\n  }, res=140)\n}\n\n# Create Shiny app ----\nshinyApp(ui = ui, server = server)"
+  },
+  {
+    "objectID": "index.html#convert-a-shiny-app-to-shinylive",
+    "href": "index.html#convert-a-shiny-app-to-shinylive",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Convert a Shiny app to Shinylive",
+    "text": "Convert a Shiny app to Shinylive\nInstall the Shinylive R package:\ninstall.packages(\"shinylive\")\n Convert the app:\nshinylive::export(\"myapp\", \"site\")\n Run the application:\nhttpuv::runStaticServer(\"site\")\n\nWeb package ready to be transferred as a binary bundle to another machine.\nCan also be uploaded to GitHub Pages or other static web hosting."
+  },
+  {
+    "objectID": "index.html#webassembly-r-packages-httpsrepo.r-wasm.org",
+    "href": "index.html#webassembly-r-packages-httpsrepo.r-wasm.org",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "WebAssembly R packages 🔗 https://repo.r-wasm.org",
+    "text": "WebAssembly R packages 🔗 https://repo.r-wasm.org\nBinary R packages for Wasm are available from a CRAN-like CDN:\n\n\n\n\nOver 60% of CRAN packages available for webR"
+  },
+  {
+    "objectID": "index.html#what-if-r-packages-change",
+    "href": "index.html#what-if-r-packages-change",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "What if R packages change?",
+    "text": "What if R packages change?\n\nR packages are always updating and changing.\nDespite best efforts, changes and deprecations can break older code.\n\n\n\n\nWith the next version of Shinylive, Wasm R package binaries will be frozen and bundled with an app automatically.\nApps will continue to work in the future, without changes, even as the webR CRAN-like repository updates."
+  },
+  {
+    "objectID": "index.html#exporting-a-shinylive-app",
+    "href": "index.html#exporting-a-shinylive-app",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Exporting a Shinylive app",
+    "text": "Exporting a Shinylive app"
+  },
+  {
+    "objectID": "index.html#r-consortium-submission-working-group",
+    "href": "index.html#r-consortium-submission-working-group",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "R Consortium Submission Working Group",
+    "text": "R Consortium Submission Working Group\nPilot Shiny app submissions to the FDA investigating containers and WebAssembly.\n\n\n\n🔗 Testing Containers and WebAssembly in Submissions to the FDA - pharmaverse.github.io"
+  },
+  {
+    "objectID": "index.html#future-work-and-current-issues",
+    "href": "index.html#future-work-and-current-issues",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "Future work and current issues",
+    "text": "Future work and current issues\n\nNot all R packages work under WebAssembly.\nBrowser security restrictions: limited networking, no raw socket access.\n\n\n\nThere will always be good reasons to use a traditional Shiny deployment.\n\n\n\n\nThere are no secrets with a Shinylive app!\nAll code and data is sent to the client, deploy accordingly."
+  },
+  {
+    "objectID": "index.html#section",
+    "href": "index.html#section",
+    "title": "Reproducible data science with webR and Shinylive",
+    "section": "",
+    "text": "🔗 webR demo website\nhttps://webr.r-wasm.org/v0.3.2/\n🌎 Shinylive examples\nhttps://shinylive.io/r/\nhttps://shinylive.io/py/\n📙 Documentation\nhttps://docs.r-wasm.org/webr/v0.3.2/\nhttps://github.com/posit-dev/shinylive\nhttps://github.com/quarto-ext/shinylive"
+  }
+]
