@@ -88,7 +88,7 @@
     "href": "index.html#hosting-a-shiny-app",
     "title": "Reproducible data science with webR and Shinylive",
     "section": "Hosting a Shiny app",
-    "text": "Hosting a Shiny app\n\nA workstation, under a desk, running RStudio\nA server, in a rack, running Shiny Server\nshinyapps.io\nPosit Cloud/Posit Connect\nAWS/Google/Azure enterprise cloud hosting"
+    "text": "Hosting a Shiny app\n\nA workstation, under a desk, running RStudio\nShiny Server\nshinyapps.io\nPosit Cloud/Posit Connect\nAWS/Google/Azure enterprise cloud hosting"
   },
   {
     "objectID": "index.html#bundle-and-distribute-app",
@@ -102,14 +102,7 @@
     "href": "index.html#shinylive-app-httpsshinylive.ior",
     "title": "Reproducible data science with webR and Shinylive",
     "section": "Shinylive App 🔗 https://shinylive.io/r/",
-    "text": "Shinylive App 🔗 https://shinylive.io/r/"
-  },
-  {
-    "objectID": "index.html#static-web-hosting",
-    "href": "index.html#static-web-hosting",
-    "title": "Reproducible data science with webR and Shinylive",
-    "section": "Static web hosting",
-    "text": "Static web hosting\n\nGithub Pages\nNetlify\nCloudflare Pages\nQuarto Pub\nLots more…"
+    "text": "Shinylive App 🔗 https://shinylive.io/r/\n\n\n\n\n\nGithub Pages\nNetlify\nCloudflare Pages\nQuarto Pub\nLots more…"
   },
   {
     "objectID": "index.html#shinylive-in-quarto",
