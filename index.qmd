@@ -1,0 +1,604 @@
+---
+title: "Reproducible data science with webR and Shinylive"
+author: "George Stagg"
+institute: "Posit, PBC"
+date-format: long
+title-slide-attributes:
+  data-background-image: images/title.jpg
+format:
+  revealjs:
+    theme:
+     - "default"
+     - "custom.scss"
+    width: "1600"
+    height: "900"
+revealjs-plugins:
+  - ace
+filters:
+  - shinylive
+---
+
+## The Open Science movement
+
+A fundamental principle of the scientific method is peer preview and verification.
+
+. . .
+
+::: columns
+::: {.column width="60%"}
+
+* Researchers increasingly publishing data, infrastructure, and software.
+
+* In some areas, becoming an institutional or regulatory requirement.
+
+* Taking lessons and inspiration from [free and open source software](https://en.wikipedia.org/wiki/Open-source-software_movement).
+
+::: {.fragment}
+* **Reproducible** software allows the same conclusions to be equally available to all researchers.
+:::
+:::
+
+::: {.column width="40%"}
+::: {style="text-align: center; margin-top: -2em;"}
+![](images/pillars){alt="Pillars of the Open Science. From: Understanding Open Science, UNESCO, 2022" width="95%"}
+:::
+:::
+
+:::
+
+
+<small>
+  <ul>
+  <li>🔗 Open Science now: A systematic literature review for an integrated definition - <https://doi.org/10.1016/j.jbusres.2017.12.043></li>
+  <li>🔗 Understanding Open Science - <https://doi.org/10.54677/UTCD9302></li>
+  </ul>
+</small>
+
+## Reproducibility in practice
+
+::: {style="text-align: center;"}
+
+![](images/paper2.png){alt="A large-scale study on research code quality and execution" width="80%"}
+
+:::
+
+. . .
+
+::: {style="text-align: center;"}
+
+![](images/paper1.png){alt="We find that 74% of R files failed to complete without error in the initial execution." width="100%"}
+
+:::
+
+---
+
+## What do we mean by "reproducible" software?
+
+1) The ability for anyone to easily re-run and verify the result of some computational procedure.
+
+. . .
+
+2) The ability to modify or extend the procedure (software and/or data) to gain new insights.
+
+. . .
+
+<br>
+
+::: {style="text-align: center; font-size: 1.25em;"}
+
+There is some level of subjectivity here: "easily"
+
+:::
+
+. . .
+
+<br>
+
+::: {style="text-align: center; font-size: 1.25em;"}
+
+There are levels of reproducibility, some are easier than others.
+
+:::
+
+. . .
+
+<br>
+
+**More info:**\
+🔗 [Building reproducible analytical pipelines with R, Bruno Rodrigues](https://raps-with-r.dev)\
+🔗 [ONS RAP Companion](https://ukgovdatascience.github.io/rap_companion/)\
+🔗 [Software Carpentry](https://software-carpentry.org/reading/), [Data Carpentry](https://datacarpentry.org)
+
+## The first level of reproducibility
+
+Recognise there is no guarantee your script will run successfully anywhere else.
+
+. . .
+
+<q>It works on my machine ¯\\_(ツ)_/¯</q>
+
+. . .
+
+<br>
+
+Some simple things to watch out for:
+
+ * Hard-coded paths, `setwd()`, project organisation.
+ 
+ * Ensure all source files and datasets can be loaded.
+ 
+ * Workflow management, order of execution.
+ 
+ * Avoidable programming errors.
+
+
+. . .
+
+A small effort here, even using automated tools, makes a big difference.
+
+::: {style="text-align: center;"}
+
+![](images/paper3.png){alt="56% failed when code cleaning was applied, showing that many errors can be prevented with good coding practices." width="100%"}
+
+:::
+ 
+
+## At the language level
+
+::: columns
+::: {.column width="60%"}
+
+ * Source code management, `git`, GitHub.
+ 
+ * Defensive programming, handling error conditions.
+ 
+ * Organising software into modules or packages.
+ 
+ * Lifecycle management, avoid deprecated functionality.
+ 
+ * Documentation and tests.
+
+:::
+
+::: {.column width="40%"}
+::: {style="text-align: center; margin-top:-2em"}
+![](images/hex1.png){alt="Hex logos: pkgdown, testthat, usethis, rstudio, quarto, roxygen2, shinytest2" width="90%"}
+:::
+:::
+
+:::
+
+. . .
+
+No magic bullet: Good software engineering leads to lasting projects.
+
+Research Software Engineering: <https://society-rse.org>, <https://us-rse.org>
+
+## Computing environments
+
+Many different computational environments exist, all with the potential to affect your analysis.
+
+
+::: columns
+::: {.column width="50%"}
+
+#### Language and package management
+
+* Versions of interpreter software:
+   - R 3.6.3, 4.1.3
+   - Python 3.8, 3.12
+   - Node 16, 20
+
+* Versions of packages
+
+Tools: [rig](https://github.com/r-lib/rig), [pyenv](https://github.com/pyenv/pyenv), [p3m](https://packagemanager.posit.co/client/#/), [renv](https://rstudio.github.io/renv/articles/renv.html), [venv](https://docs.python.org/3/library/venv.html).
+
+:::
+
+
+::: {.fragment .column width="50%"}
+
+#### System and library management
+
+ * System libraries: GSL, NLopt, BLAS/LAPACK
+ * Operating system: Windows, macOS, Linux
+
+Tools: Virtual Machines, [Docker](https://www.docker.com), [Nix](https://nixos.org).
+ 
+:::
+
+:::
+
+. . .
+
+<br>
+
+ * **Very slow** to reproduce environment in full, especially without caching!
+ * Difficult to use, very steep learning curve.
+
+## Binary-level differences
+
+Software source code is compiled into a machine-language binary. But the same software can give different binaries depending on the type of hardware (ARM vs x86_64 vs RISC)
+
+. . .
+
+![](images/matrix.png){alt="solve(matrix(c(  1,   3,   11,   0,   -11,  -15, 18,  55,  209,   15, -198, -277,-23, -33,  144,  532,  259,   82,  9,  55,  405,  437, -100, -285,  3,  -4, -111, -180,   39,  219,-13,  -9,  202,  346,  401,  253), nrow=6, byrow = TRUE))[[1]]" fig-align="center" width="60%"}
+
+. . .
+
+**More info:**
+
+🔗 <https://github.com/numpy/numpy/issues/9187>\
+🔗 [Floating point determinism](https://randomascii.wordpress.com/2013/07/16/floating-point-determinism/)\
+🔗 [What every computer scientist should know about floating point arithmetic](https://dl.acm.org/doi/10.1145/103162.103163)\
+
+## WebAssembly
+
+::: columns
+::: {.column}
+-   A portable binary code format
+-   Enables high-performance applications on web pages
+-   Near-native execution speed
+-   Supported by most modern browsers
+-   Interactive through JavaScript integration
+:::
+
+::: {.column width="50%" style="text-align:center"}
+![](images/wasm.svg){style="width:50%; margin-bottom: 1em;"}
+:::
+:::
+
+Also provides benefits for security in the form of containerisation and sandboxing.
+
+
+## R for WebAssembly: webR
+
+```{=html}
+<script src="webr-reveal.js"></script>
+```
+
+![](images/webr.png){alt="The webR logo" height="350" fig-align="center"}
+
+::: {style="text-align: center"}
+The [webR](https://docs.r-wasm.org/) project is a version of the R interpreter built for WebAssembly.
+
+Execute R code directly in a web browser, [without a supporting R server]{.em}.
+Alternatively, run an R process [server-side]{.em} using Node.js
+
+<br/>
+
+Available on GitHub and NPM as a JavaScript & TypeScript library.
+
+:::
+
+
+---
+
+## The webR Application <span style="font-size: 50%">🔗 <https://webr.r-wasm.org/v0.3.2/></span>
+
+<iframe class="web zoomed" allow="cross-origin-isolated" width="80%" height="70%" src="https://webr.r-wasm.org/v0.3.2/">
+
+</iframe>
+
+---
+
+## Live and interactive code
+
+```{=html}
+<script>
+  insertAceWebR(
+  document.currentScript,
+    `ggplot(mtcars, aes(x = wt, y = mpg, group = am)) +
+  geom_point(aes(color = cyl, shape = cyl)) +
+  geom_smooth(method = lm, formula = y ~ x) +
+  ggtitle("Motor Trend Car Road Tests 🚀") +
+  scale_shape_binned()`,
+    { height: 180, canvas: { width: 1000, height: 500 } }
+  );
+</script>
+```
+
+# Shinylive for R and Python
+
+Run Shiny applications entirely in a web browser, without the need for a computational server.
+
+## Traditional Shiny App
+::: {style="text-align: center;"}
+
+![](images/server-side.png){style="width:55%"}
+
+:::
+
+## Hosting a Shiny app
+
+ * A workstation, under a desk, running [RStudio](https://posit.co/products/open-source/rstudio/)
+ * A server, in a rack, running [Shiny Server](https://posit.co/products/open-source/shinyserver/)
+ * [shinyapps.io](https://www.shinyapps.io)
+ * [Posit Cloud](https://posit.cloud)/[Posit Connect](https://posit.co/products/enterprise/connect/)
+ * [AWS](https://aws.amazon.com)/[Google](https://cloud.google.com)/[Azure](https://azure.microsoft.com) enterprise cloud hosting
+
+
+## Bundle and distribute app 
+
+* Transfer source and data to some other machine.
+* Run the app with a local Shiny server.
+* Useful method for e.g. archival, app submission and review.
+
+. . .
+
+<br>
+
+Requires a reproducible workflow and software installation:
+
+  - R/Python interpreter, of the correct version.
+  - Software and environment control: Docker, rix, renv, venv, etc.
+  - Software development tools: RStudio, VS Code.
+  - Knowledge and experience: Shiny `runApp()`, debugging.
+
+. . .
+
+<br>
+
+<q>Wouldn't it be great if we could run Shiny apps locally, without installing any extra software?</q>
+
+## Shinylive App <span style="font-size: 50%">🔗 <https://shinylive.io/r/></span>
+::: {style="text-align: center;"}
+
+![](images/client-side.png){style="width:55%"}
+
+:::
+
+## Static web hosting
+
+* [Github Pages](https://pages.github.com)
+* [Netlify](https://www.netlify.com)
+* [Cloudflare Pages](https://www.netlify.com)
+* [Quarto Pub](https://quartopub.com)
+* Lots more...
+
+## Shinylive in Quarto
+
+````{.md code-line-numbers="4-19"}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+
+```{shinylive-r}
+#| standalone: true
+library(shiny)
+
+# Create Shiny UI
+ui <- [...]
+
+# Create Shiny server function
+server <- function(input, output, session) {
+  [...]
+}
+
+# Build Shiny app
+shinyApp(ui = ui, server = server)
+```
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit laborum.
+````
+
+---
+
+## Shinylive for R 
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 700
+
+library(shiny)
+library(bslib)
+
+theme <- bs_theme(font_scale = 1.5)
+
+# Define UI for app that draws a histogram ----
+ui <- page_sidebar(theme = theme,
+  sidebar = sidebar(open = "open",
+    numericInput("n", "Sample count", 50),
+    checkboxInput("pause", "Pause", FALSE),
+  ),
+  plotOutput("plot", width=1100)
+)
+
+server <- function(input, output, session) {
+  data <- reactive({
+    input$resample
+    if (!isTRUE(input$pause)) {
+      invalidateLater(1000)
+    }
+    rnorm(input$n)
+  })
+  
+  output$plot <- renderPlot({
+    hist(data(),
+      breaks = 30,
+      xlim = c(-2, 2),
+      ylim = c(0, 1),
+      xlab = "value",
+      freq = FALSE,
+      main = ""
+    )
+    
+    x <- seq(from = -2, to = 2, length.out = 500)
+    y <- dnorm(x)
+    lines(x, y, lwd=1.5)
+    
+    lwd <- 5
+    abline(v=0, col="red", lwd=lwd, lty=2)
+    abline(v=mean(data()), col="blue", lwd=lwd, lty=1)
+
+    legend(legend = c("Normal", "Mean", "Sample mean"),
+      col = c("black", "red", "blue"),
+      lty = c(1, 2, 1),
+      lwd = c(1, lwd, lwd),
+      x = 1,
+      y = 0.9
+    )
+  }, res=140)
+}
+
+# Create Shiny app ----
+shinyApp(ui = ui, server = server)
+```
+
+## Convert a Shiny app to Shinylive
+
+Install the [Shinylive R package](https://github.com/posit-dev/r-shinylive):
+
+```{.r style="font-size: 180%"}
+install.packages("shinylive")
+```
+
+
+<br>
+Convert the app:
+```{.r style="font-size: 180%"}
+shinylive::export("myapp", "site")
+```
+
+
+<br>
+Run the application:
+```{.r style="font-size: 180%"}
+httpuv::runStaticServer("site")
+```
+
+. . .
+
+Web package ready to be transferred as a binary bundle to another machine.
+
+Can also be uploaded to GitHub Pages or other static web hosting.
+
+
+## WebAssembly R packages <span style="font-size: 50%">🔗 <https://repo.r-wasm.org></span>
+
+Binary R packages for Wasm are available from a CRAN-like CDN:
+
+::: {style="text-align: center"}
+![](images/repo.png){style="width: 50%"}
+:::
+
+* Over 60% of CRAN packages available for webR
+
+## What if R packages change?
+
+* R packages are always updating and changing.
+
+* Despite best efforts, changes and deprecations can break older code.
+
+. . .
+
+<br>
+
+* With the next version of Shinylive, Wasm R package binaries will be frozen and bundled with an app automatically.
+
+* Apps will continue to work in the future, without changes, even as the webR CRAN-like repository updates.
+
+## Exporting a Shinylive app
+
+<video controls autoplay muted loop width="100%">
+  <source src="images/build.mp4" type="video/mp4">
+</video>
+
+---
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 800
+library(shiny)
+library(dplyr)
+
+ui <- fluidPage(
+  titlePanel("Hello Shiny!"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput(inputId = "bins",
+                  label = "Number of bins:",
+                  min = 1,
+                  max = 50,
+                  value = 30),
+      
+      sliderInput(inputId = "filter",
+                  label = "Filter:",
+                  min = 45,
+                  max = 99,
+                  value = 90)
+
+    ),
+    mainPanel(
+      plotOutput(outputId = "distPlot")
+    )
+  )
+)
+
+
+server <- function(input, output) {
+
+  output$distPlot <- renderPlot({
+
+    x    <- faithful |> dplyr::pull(waiting)
+    xf   <- faithful |> dplyr::filter(waiting < input$filter) |> dplyr::pull(waiting)
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+
+    hist(xf, breaks = bins, col = "#75AADB", border = "white",
+         xlab = "Waiting time to next eruption (in mins)",
+         main = "Histogram of waiting times")
+
+    })
+
+}
+
+# Create Shiny app ----
+shinyApp(ui = ui, server = server)
+```
+
+## R Consortium Submission Working Group
+
+Pilot Shiny app submissions to the FDA investigating containers and WebAssembly.
+
+::: {style="text-align: center"}
+![](images/pilot.png){alt="Screenshot of the pilot shiny app submission using webR" width="60%"}
+:::
+
+🔗 [Testing Containers and WebAssembly in Submissions to the FDA - pharmaverse.github.io](https://pharmaverse.github.io/blog/posts/2024-02-01_containers_webassembly_submission/containers_and_webassembly_submissions.html)
+
+## Future work and current issues
+
+* Not all R packages work under WebAssembly.
+
+* Browser security restrictions: limited networking, no raw socket access.
+
+. . .
+
+* There will always be good reasons to use a traditional Shiny deployment.
+
+. . .
+
+* There are no secrets with a Shinylive app!
+
+* All code and data is sent to the client, deploy accordingly.
+
+## {background-image="images/sky.jpg"}
+
+### 🔗 webR demo website
+
+<https://webr.r-wasm.org/v0.3.2/>
+
+### 🌎 Shinylive examples {style="padding-top: 1em;"}
+
+<https://shinylive.io/r/>
+
+<https://shinylive.io/py/>
+
+### 📙 Documentation {style="padding-top: 1em;"}
+
+<https://docs.r-wasm.org/webr/v0.3.2/>
+
+<https://github.com/posit-dev/shinylive>
+
+<https://github.com/quarto-ext/shinylive>
