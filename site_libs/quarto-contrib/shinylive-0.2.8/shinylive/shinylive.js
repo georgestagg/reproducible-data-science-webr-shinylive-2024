@@ -1,4 +1,4 @@
-// Shinylive 0.2.8
+// Shinylive 0.3.0
 // Copyright 2024 RStudio, PBC
 import {
   FCJSONtoFC,
@@ -21,7 +21,7 @@ import {
   sleep,
   stringToUint8Array,
   uint8ArrayToString
-} from "./chunk-RJBU5NPS.js";
+} from "./chunk-CWUBJNRT.js";
 
 // node_modules/scheduler/cjs/scheduler.development.js
 var require_scheduler_development = __commonJS({
@@ -34169,11 +34169,11 @@ webr::shim_install()
     lapply(metadata, function(data) {
       name <- data$name
       path <- data$path
-      cached <- data$cached
+      available <- data$cached
       mountpoint <- glue::glue("/shinylive/webr/packages/{name}")
 
       # Mount the virtual filesystem image, unless we already have done so
-      if (cached && !file.exists(mountpoint)) {
+      if (available && !file.exists(mountpoint)) {
         webr::mount(mountpoint, glue::glue("{.base_url}{path}"))
       }
 
@@ -34186,7 +34186,7 @@ webr::shim_install()
     })
   }
 
-  # Update package cache
+  # Warm package cache with installed packages
   lapply(rownames(installed.packages()), function(p) { .webr_pkg_cache[[p]] <<- TRUE })
 }
 

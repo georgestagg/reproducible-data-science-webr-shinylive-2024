@@ -46,7 +46,7 @@
     "href": "index.html#binary-level-differences",
     "title": "Reproducible data science with webR and Shinylive",
     "section": "Binary-level differences",
-    "text": "Binary-level differences\nSoftware source code is compiled into a machine-language binary. But the same software can give different binaries depending on the type of hardware (ARM vs x86_64 vs RISC)\n\n\n\n\n\n\n\n\nMore info:\n🔗 https://github.com/numpy/numpy/issues/9187\n🔗 Floating point determinism\n🔗 What every computer scientist should know about floating point arithmetic"
+    "text": "Binary-level differences\nSoftware source code is compiled into a machine-language binary. But the same software can give different binaries depending on the type of hardware (ARM vs x86_64 vs RISC)\n\n\n\n\n\n\n\n\n\noptions(digits = 22)\n(0.1 + 0.2) + 0.3\n\n[1] 0.6000000000000000888178\n\n0.1 + (0.2 + 0.3)\n\n[1] 0.5999999999999999777955\n\n\n\nMore info:\n🔗 https://github.com/numpy/numpy/issues/9187\n🔗 Floating point determinism\n🔗 What every computer scientist should know about floating point arithmetic"
   },
   {
     "objectID": "index.html#webassembly",
@@ -91,11 +91,11 @@
     "text": "Hosting a Shiny app\n\nA workstation, under a desk, running RStudio\nShiny Server\nshinyapps.io\nPosit Cloud/Posit Connect\nAWS/Google/Azure enterprise cloud hosting"
   },
   {
-    "objectID": "index.html#bundle-and-distribute-app",
-    "href": "index.html#bundle-and-distribute-app",
+    "objectID": "index.html#bundle-and-distribute-app-source",
+    "href": "index.html#bundle-and-distribute-app-source",
     "title": "Reproducible data science with webR and Shinylive",
-    "section": "Bundle and distribute app",
-    "text": "Bundle and distribute app\n\nTransfer source and data to some other machine.\nRun the app with a local Shiny server.\nUseful method for e.g. archival, app submission and review.\n\n\n\nRequires a reproducible workflow and software installation:\n\nR/Python interpreter, of the correct version.\nSoftware and environment control: Docker, rix, renv, venv, etc.\nSoftware development tools: RStudio, VS Code.\nKnowledge and experience: Shiny runApp(), debugging.\n\n\n\n\nWouldn’t it be great if we could run Shiny apps locally, without installing any extra software?"
+    "section": "Bundle and distribute app source?",
+    "text": "Bundle and distribute app source?\n\nTransfer source and data to some other machine.\nRun the app with a local Shiny server.\nUseful method for e.g. archival, app submission and review.\n\n\n\nRequires a reproducible workflow and software installation:\n\nR/Python interpreter, of the correct version.\nSoftware and environment control: Docker, rix, renv, venv, etc.\nSoftware development tools: RStudio, VS Code.\nKnowledge and experience: Shiny runApp(), debugging.\n\n\n\n\nWouldn’t it be great if we could run Shiny apps locally, without installing any extra software?"
   },
   {
     "objectID": "index.html#shinylive-app-httpsshinylive.ior",
@@ -137,7 +137,7 @@
     "href": "index.html#what-if-r-packages-change",
     "title": "Reproducible data science with webR and Shinylive",
     "section": "What if R packages change?",
-    "text": "What if R packages change?\n\nR packages are always updating and changing.\nDespite best efforts, changes and deprecations can break older code.\n\n\n\n\nWith the next version of Shinylive, Wasm R package binaries will be frozen and bundled with an app automatically.\nApps will continue to work in the future, without changes, even as the webR CRAN-like repository updates."
+    "text": "What if R packages change?\n\nR packages are always updating and changing.\nDespite best efforts, changes and deprecations can break older code.\n\n\n\n\nWith the next version of Shinylive, Wasm R package binaries will be frozen and bundled with an app automatically.\nApps will continue to work in the future, without changes, even as the webR CRAN-like repository updates.\nCustom packages build for Wasm using r-wasm/actions will be downloaded from GitHub."
   },
   {
     "objectID": "index.html#exporting-a-shinylive-app",
@@ -158,7 +158,7 @@
     "href": "index.html#future-work-and-current-issues",
     "title": "Reproducible data science with webR and Shinylive",
     "section": "Future work and current issues",
-    "text": "Future work and current issues\n\nNot all R packages work under WebAssembly.\nBrowser security restrictions: limited networking, no raw socket access.\n\n\n\nThere will always be good reasons to use a traditional Shiny deployment.\n\n\n\n\nThere are no secrets with a Shinylive app!\nAll code and data is sent to the client, deploy accordingly."
+    "text": "Future work and current issues\n\nNot all R packages work under WebAssembly.\nBuilding custom R packages using GitHub Actions is still experimental.\nDocumentation updates and clarifications to follow.\n\n\n\nThere will always be good reasons to use a traditional Shiny deployment.\nBrowser security restrictions: limited networking, no raw socket access.\n\n\n\n\n😱 There are no secrets with a Shinylive app!\nAll code and data is sent to the client, deploy accordingly."
   },
   {
     "objectID": "index.html#section",
