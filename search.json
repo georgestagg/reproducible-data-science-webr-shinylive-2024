@@ -137,7 +137,7 @@
     "href": "index.html#what-if-r-packages-change",
     "title": "Reproducible data science with webR and Shinylive",
     "section": "What if R packages change?",
-    "text": "What if R packages change?\n\nR packages are always updating and changing.\nDespite best efforts, changes and deprecations can break older code.\n\n\n\n\nWith the next version of Shinylive, Wasm R package binaries will be frozen and bundled with an app automatically.\nApps will continue to work in the future, without changes, even as the webR CRAN-like repository updates.\nCustom packages build for Wasm using r-wasm/actions will be downloaded from GitHub."
+    "text": "What if R packages change?\n\nR packages are always updating and changing.\nDespite best efforts, changes and deprecations can break older code.\n\n\n\n\nWith the next version of Shinylive, Wasm R package binaries will be frozen and bundled with an app automatically.\nApps will continue to work in the future, without changes, even as the webR CRAN-like repository updates.\n\n\n\n\n\nWasm binaries will be downloaded from R-Universe personal package repositories.\nCustom packages built for Wasm using r-wasm/actions will be downloaded from GitHub."
   },
   {
     "objectID": "index.html#exporting-a-shinylive-app",
