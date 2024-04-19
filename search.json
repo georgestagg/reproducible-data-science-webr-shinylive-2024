@@ -46,7 +46,7 @@
     "href": "index.html#binary-level-differences",
     "title": "Reproducible data science with webR and Shinylive",
     "section": "Binary-level differences",
-    "text": "Binary-level differences\nSoftware source code is compiled into a machine-language binary. But the same software can give different binaries depending on the type of hardware (ARM vs x86_64 vs RISC)\n\n\n\n\n\n\n\n\n\noptions(digits = 22)\n(0.1 + 0.2) + 0.3\n\n[1] 0.6000000000000000888178\n\n0.1 + (0.2 + 0.3)\n\n[1] 0.5999999999999999777955\n\n\n\nMore info:\n🔗 https://github.com/numpy/numpy/issues/9187\n🔗 Floating point determinism\n🔗 What every computer scientist should know about floating point arithmetic"
+    "text": "Binary-level differences\nSoftware source code is compiled into a machine-language binary. But the same software can give different binaries depending on the type of hardware (ARM vs x86_64 vs RISC)\n\n\n\n\n\n\n\n\n\n\n\noptions(digits = 22)\n(0.1 + 0.2) + 0.3\n\n[1] 0.6000000000000000888178\n\n\n\n\noptions(digits = 22)\n0.1 + (0.2 + 0.3)\n\n[1] 0.5999999999999999777955\n\n\n\n\n\nMore info:\n🔗 https://github.com/numpy/numpy/issues/9187\n🔗 Floating point determinism\n🔗 What every computer scientist should know about floating point arithmetic"
   },
   {
     "objectID": "index.html#webassembly",

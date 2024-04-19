@@ -535,7 +535,7 @@ George Stagg
 <h2>Computing environments</h2>
 <p>Many different computational environments exist, all with the potential to affect your analysis.</p>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column">
 <h4 id="language-and-package-management">Language and package management</h4>
 <ul>
 <li>Versions of interpreter software:
@@ -547,7 +547,7 @@ George Stagg
 <li>Versions of packages</li>
 </ul>
 <p>Tools: <a href="https://github.com/r-lib/rig">rig</a>, <a href="https://github.com/pyenv/pyenv">pyenv</a>, <a href="https://packagemanager.posit.co/client/#/">p3m</a>, <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a>, <a href="https://docs.python.org/3/library/venv.html">venv</a>.</p>
-</div><div class="fragment column" style="width:50%;">
+</div><div class="fragment column">
 <!-- -->
 <h4 id="system-and-library-management">System and library management</h4>
 <ul>
@@ -576,15 +576,23 @@ George Stagg
 </div>
 </div>
 <div class="fragment">
+<div class="columns">
+<div class="column" style="text-align:center">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">22</span>)</span>
 <span id="cb1-2"><a></a>(<span class="fl">0.1</span> <span class="sc">+</span> <span class="fl">0.2</span>) <span class="sc">+</span> <span class="fl">0.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6000000000000000888178</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fl">0.1</span> <span class="sc">+</span> (<span class="fl">0.2</span> <span class="sc">+</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="text-align:center">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">22</span>)</span>
+<span id="cb3-2"><a></a><span class="fl">0.1</span> <span class="sc">+</span> (<span class="fl">0.2</span> <span class="sc">+</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5999999999999999777955</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="fragment" style="font-size: 0.75em">
