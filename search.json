@@ -123,7 +123,7 @@
     "href": "index.html#convert-a-shiny-app-to-shinylive",
     "title": "Reproducible data science with webR and Shinylive",
     "section": "Convert a Shiny app to Shinylive",
-    "text": "Convert a Shiny app to Shinylive\nInstall the Shinylive R package:\ninstall.packages(\"shinylive\")\n Convert the app:\nshinylive::export(\"myapp\", \"site\")\n Run the application:\nhttpuv::runStaticServer(\"site\")\n\nWeb package ready to be transferred as a binary bundle to another machine.\nCan also be uploaded to GitHub Pages or other static web hosting."
+    "text": "Convert a Shiny app to Shinylive\nInstall the Shinylive R package:\ninstall.packages(\"shinylive\")\n Convert the app:\nshinylive::export(\"myapp\", \"site\")\nBinary bundle ready to transfer to another machine or host on a static web service.\n\n Run the application:\nhttpuv::runStaticServer(\"site\")\nor…\npython -m http.server\nnpx http-server"
   },
   {
     "objectID": "index.html#webassembly-r-packages-httpsrepo.r-wasm.org",

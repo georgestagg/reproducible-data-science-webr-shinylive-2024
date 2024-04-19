@@ -802,12 +802,14 @@ George Stagg
 <p>Install the <a href="https://github.com/posit-dev/r-shinylive">Shinylive R package</a>:</p>
 <div class="sourceCode" id="cb7" style="font-size: 180%"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">install.packages</span>(<span class="st">"shinylive"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br> Convert the app:</p>
-<div class="sourceCode" id="cb8" style="font-size: 180%"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>shinylive<span class="sc">::</span><span class="fu">export</span>(<span class="st">"myapp"</span>, <span class="st">"site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br> Run the application:</p>
-<div class="sourceCode" id="cb9" style="font-size: 180%"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>httpuv<span class="sc">::</span><span class="fu">runStaticServer</span>(<span class="st">"site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8" style="font-size: 180%"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>shinylive<span class="sc">::</span><span class="fu">export</span>(<span class="st">"myapp"</span>, <span class="st">"site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Binary bundle ready to transfer to another machine or host on a static web service.</p>
 <div class="fragment">
-<p>Web package ready to be transferred as a binary bundle to another machine.</p>
-<p>Can also be uploaded to GitHub Pages or other static web hosting.</p>
+<p><br> Run the application:</p>
+<div class="sourceCode" id="cb9" style="font-size: 180%"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>httpuv<span class="sc">::</span><span class="fu">runStaticServer</span>(<span class="st">"site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or…</p>
+<div class="sourceCode" id="cb10" style="font-size: 100%"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> http.server</span>
+<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> http-server </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="webassembly-r-packages-httpsrepo.r-wasm.org" class="slide level2">
@@ -849,53 +851,53 @@ George Stagg
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb10" data-engine="r"><pre class="sourceCode numberSource shinylive-r number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a></a>#| standalone: true</span>
-<span id="cb10-2"><a></a>#| viewerHeight: 800</span>
-<span id="cb10-3"><a></a>library(shiny)</span>
-<span id="cb10-4"><a></a>library(dplyr)</span>
-<span id="cb10-5"><a></a></span>
-<span id="cb10-6"><a></a>ui &lt;- fluidPage(</span>
-<span id="cb10-7"><a></a>  titlePanel("Hello Shiny!"),</span>
-<span id="cb10-8"><a></a>  sidebarLayout(</span>
-<span id="cb10-9"><a></a>    sidebarPanel(</span>
-<span id="cb10-10"><a></a>      sliderInput(inputId = "bins",</span>
-<span id="cb10-11"><a></a>                  label = "Number of bins:",</span>
-<span id="cb10-12"><a></a>                  min = 1,</span>
-<span id="cb10-13"><a></a>                  max = 50,</span>
-<span id="cb10-14"><a></a>                  value = 30),</span>
-<span id="cb10-15"><a></a>      </span>
-<span id="cb10-16"><a></a>      sliderInput(inputId = "filter",</span>
-<span id="cb10-17"><a></a>                  label = "Filter:",</span>
-<span id="cb10-18"><a></a>                  min = 45,</span>
-<span id="cb10-19"><a></a>                  max = 99,</span>
-<span id="cb10-20"><a></a>                  value = 90)</span>
-<span id="cb10-21"><a></a></span>
-<span id="cb10-22"><a></a>    ),</span>
-<span id="cb10-23"><a></a>    mainPanel(</span>
-<span id="cb10-24"><a></a>      plotOutput(outputId = "distPlot")</span>
-<span id="cb10-25"><a></a>    )</span>
-<span id="cb10-26"><a></a>  )</span>
-<span id="cb10-27"><a></a>)</span>
-<span id="cb10-28"><a></a></span>
-<span id="cb10-29"><a></a></span>
-<span id="cb10-30"><a></a>server &lt;- function(input, output) {</span>
-<span id="cb10-31"><a></a></span>
-<span id="cb10-32"><a></a>  output$distPlot &lt;- renderPlot({</span>
-<span id="cb10-33"><a></a></span>
-<span id="cb10-34"><a></a>    x    &lt;- faithful |&gt; dplyr::pull(waiting)</span>
-<span id="cb10-35"><a></a>    xf   &lt;- faithful |&gt; dplyr::filter(waiting &lt; input$filter) |&gt; dplyr::pull(waiting)</span>
-<span id="cb10-36"><a></a>    bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)</span>
-<span id="cb10-37"><a></a></span>
-<span id="cb10-38"><a></a>    hist(xf, breaks = bins, col = "#75AADB", border = "white",</span>
-<span id="cb10-39"><a></a>         xlab = "Waiting time to next eruption (in mins)",</span>
-<span id="cb10-40"><a></a>         main = "Histogram of waiting times")</span>
-<span id="cb10-41"><a></a></span>
-<span id="cb10-42"><a></a>    })</span>
-<span id="cb10-43"><a></a></span>
-<span id="cb10-44"><a></a>}</span>
-<span id="cb10-45"><a></a></span>
-<span id="cb10-46"><a></a># Create Shiny app ----</span>
-<span id="cb10-47"><a></a>shinyApp(ui = ui, server = server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11" data-engine="r"><pre class="sourceCode numberSource shinylive-r number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a></a>#| standalone: true</span>
+<span id="cb11-2"><a></a>#| viewerHeight: 800</span>
+<span id="cb11-3"><a></a>library(shiny)</span>
+<span id="cb11-4"><a></a>library(dplyr)</span>
+<span id="cb11-5"><a></a></span>
+<span id="cb11-6"><a></a>ui &lt;- fluidPage(</span>
+<span id="cb11-7"><a></a>  titlePanel("Hello Shiny!"),</span>
+<span id="cb11-8"><a></a>  sidebarLayout(</span>
+<span id="cb11-9"><a></a>    sidebarPanel(</span>
+<span id="cb11-10"><a></a>      sliderInput(inputId = "bins",</span>
+<span id="cb11-11"><a></a>                  label = "Number of bins:",</span>
+<span id="cb11-12"><a></a>                  min = 1,</span>
+<span id="cb11-13"><a></a>                  max = 50,</span>
+<span id="cb11-14"><a></a>                  value = 30),</span>
+<span id="cb11-15"><a></a>      </span>
+<span id="cb11-16"><a></a>      sliderInput(inputId = "filter",</span>
+<span id="cb11-17"><a></a>                  label = "Filter:",</span>
+<span id="cb11-18"><a></a>                  min = 45,</span>
+<span id="cb11-19"><a></a>                  max = 99,</span>
+<span id="cb11-20"><a></a>                  value = 90)</span>
+<span id="cb11-21"><a></a></span>
+<span id="cb11-22"><a></a>    ),</span>
+<span id="cb11-23"><a></a>    mainPanel(</span>
+<span id="cb11-24"><a></a>      plotOutput(outputId = "distPlot")</span>
+<span id="cb11-25"><a></a>    )</span>
+<span id="cb11-26"><a></a>  )</span>
+<span id="cb11-27"><a></a>)</span>
+<span id="cb11-28"><a></a></span>
+<span id="cb11-29"><a></a></span>
+<span id="cb11-30"><a></a>server &lt;- function(input, output) {</span>
+<span id="cb11-31"><a></a></span>
+<span id="cb11-32"><a></a>  output$distPlot &lt;- renderPlot({</span>
+<span id="cb11-33"><a></a></span>
+<span id="cb11-34"><a></a>    x    &lt;- faithful |&gt; dplyr::pull(waiting)</span>
+<span id="cb11-35"><a></a>    xf   &lt;- faithful |&gt; dplyr::filter(waiting &lt; input$filter) |&gt; dplyr::pull(waiting)</span>
+<span id="cb11-36"><a></a>    bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)</span>
+<span id="cb11-37"><a></a></span>
+<span id="cb11-38"><a></a>    hist(xf, breaks = bins, col = "#75AADB", border = "white",</span>
+<span id="cb11-39"><a></a>         xlab = "Waiting time to next eruption (in mins)",</span>
+<span id="cb11-40"><a></a>         main = "Histogram of waiting times")</span>
+<span id="cb11-41"><a></a></span>
+<span id="cb11-42"><a></a>    })</span>
+<span id="cb11-43"><a></a></span>
+<span id="cb11-44"><a></a>}</span>
+<span id="cb11-45"><a></a></span>
+<span id="cb11-46"><a></a># Create Shiny app ----</span>
+<span id="cb11-47"><a></a>shinyApp(ui = ui, server = server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="r-consortium-submission-working-group" class="slide level2">
 <h2>R Consortium Submission Working Group</h2>
