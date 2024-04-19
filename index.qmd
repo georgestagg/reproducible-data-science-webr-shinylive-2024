@@ -180,7 +180,7 @@ Many different computational environments exist, all with the potential to affec
 
 
 ::: columns
-::: {.column width="50%"}
+::: {.column}
 
 #### Language and package management
 
@@ -196,7 +196,7 @@ Tools: [rig](https://github.com/r-lib/rig), [pyenv](https://github.com/pyenv/pye
 :::
 
 
-::: {.fragment .column width="50%"}
+::: {.fragment .column}
 
 #### System and library management
 
@@ -226,11 +226,33 @@ Software source code is compiled into a machine-language binary. But the same so
 
 . . .
 
+::: {.columns}
+::: {.column style="text-align:center"}
+```{r}
+#| echo: true
+options(digits = 22)
+(0.1 + 0.2) + 0.3
+```
+:::
+
+::: {.column style="text-align:center"}
+```{r}
+#| echo: true
+options(digits = 22)
+0.1 + (0.2 + 0.3)
+```
+:::
+
+:::
+
+::: {.fragment style="font-size: 0.75em"}
+
 **More info:**
 
 🔗 <https://github.com/numpy/numpy/issues/9187>\
 🔗 [Floating point determinism](https://randomascii.wordpress.com/2013/07/16/floating-point-determinism/)\
 🔗 [What every computer scientist should know about floating point arithmetic](https://dl.acm.org/doi/10.1145/103162.103163)\
+:::
 
 ## WebAssembly
 
@@ -243,7 +265,7 @@ Software source code is compiled into a machine-language binary. But the same so
 -   Interactive through JavaScript integration
 :::
 
-::: {.column width="50%" style="text-align:center"}
+::: {.column style="text-align:center"}
 ![](images/wasm.svg){style="width:50%; margin-bottom: 1em;"}
 :::
 :::
@@ -312,13 +334,13 @@ Run Shiny applications entirely in a web browser, without the need for a computa
 ## Hosting a Shiny app
 
  * A workstation, under a desk, running [RStudio](https://posit.co/products/open-source/rstudio/)
- * A server, in a rack, running [Shiny Server](https://posit.co/products/open-source/shinyserver/)
+ * [Shiny Server](https://posit.co/products/open-source/shinyserver/)
  * [shinyapps.io](https://www.shinyapps.io)
  * [Posit Cloud](https://posit.cloud)/[Posit Connect](https://posit.co/products/enterprise/connect/)
  * [AWS](https://aws.amazon.com)/[Google](https://cloud.google.com)/[Azure](https://azure.microsoft.com) enterprise cloud hosting
 
 
-## Bundle and distribute app 
+## Bundle and distribute app source?
 
 * Transfer source and data to some other machine.
 * Run the app with a local Shiny server.
@@ -348,13 +370,14 @@ Requires a reproducible workflow and software installation:
 
 :::
 
-## Static web hosting
-
+::: {style="font-size: 75%; position: absolute; top: 650px; left: 400px;"}
 * [Github Pages](https://pages.github.com)
 * [Netlify](https://www.netlify.com)
 * [Cloudflare Pages](https://www.netlify.com)
 * [Quarto Pub](https://quartopub.com)
 * Lots more...
+:::
+
 
 ## Shinylive in Quarto
 
@@ -450,29 +473,32 @@ shinyApp(ui = ui, server = server)
 
 Install the [Shinylive R package](https://github.com/posit-dev/r-shinylive):
 
-```{.r style="font-size: 180%"}
+```{.r style="font-size: 180%" code-line-numbers="false"}
 install.packages("shinylive")
 ```
 
 
 <br>
 Convert the app:
-```{.r style="font-size: 180%"}
+```{.r style="font-size: 180%" code-line-numbers="false"}
 shinylive::export("myapp", "site")
 ```
 
-
-<br>
-Run the application:
-```{.r style="font-size: 180%"}
-httpuv::runStaticServer("site")
-```
+Binary bundle ready to transfer to another machine or host on a static web service.
 
 . . .
 
-Web package ready to be transferred as a binary bundle to another machine.
+<br>
+Run the application:
+```{.r style="font-size: 180%" code-line-numbers="false"}
+httpuv::runStaticServer("site")
+```
 
-Can also be uploaded to GitHub Pages or other static web hosting.
+or...
+```{.bash style="font-size: 100%" code-line-numbers="false"}
+python -m http.server
+npx http-server 
+```
 
 
 ## WebAssembly R packages <span style="font-size: 50%">🔗 <https://repo.r-wasm.org></span>
@@ -498,6 +524,14 @@ Binary R packages for Wasm are available from a CRAN-like CDN:
 * With the next version of Shinylive, Wasm R package binaries will be frozen and bundled with an app automatically.
 
 * Apps will continue to work in the future, without changes, even as the webR CRAN-like repository updates.
+
+. . .
+
+<br>
+
+* Wasm binaries will be downloaded from R-Universe personal package repositories.
+
+* Custom packages built for Wasm using [r-wasm/actions](https://github.com/r-wasm/actions/) will be downloaded from GitHub.
 
 ## Exporting a Shinylive app
 
@@ -571,15 +605,19 @@ Pilot Shiny app submissions to the FDA investigating containers and WebAssembly.
 
 * Not all R packages work under WebAssembly.
 
-* Browser security restrictions: limited networking, no raw socket access.
+* Building custom R packages using GitHub Actions is still experimental.
+
+* Documentation updates and clarifications to follow.
 
 . . .
 
 * There will always be good reasons to use a traditional Shiny deployment.
 
+* Browser security restrictions: limited networking, no raw socket access.
+
 . . .
 
-* There are no secrets with a Shinylive app!
+* 😱 There are no secrets with a Shinylive app!
 
 * All code and data is sent to the client, deploy accordingly.
 
